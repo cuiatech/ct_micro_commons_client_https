@@ -20,7 +20,7 @@ class ClientHttps extends ClientHttpsBase {
     HttpClientAdapter? httpClientAdapter,
   }) : super(
           BaseOptions(
-            baseUrl: "",
+            baseUrl: "http://localhost/cuiatech_api",
             connectTimeout: 50000,
             receiveTimeout: 50000,
           ),
