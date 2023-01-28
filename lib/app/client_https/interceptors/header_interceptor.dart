@@ -8,10 +8,15 @@ class HeaderInterceptor extends InterceptorsWrapper {
   Future onRequest(RequestOptions options, handler) async {
     options.headers["device"] = kIsWeb ? "Web" : "App";
 
-    // final currentUser = await _currentUser();
-    // if (currentUser != null && currentUser.idToken.isNotEmpty) {
-    //   options.headers['Authorization'] = currentUser.idToken;
-    // }
+    final prefs = await SharedPreferences.getInstance();
+    var accessToken = prefs.getString('access_token');
+
+    if (accessToken != null) {
+      options.headers['Authorization'] = accessToken;
+    }
+
+    print(options.headers);
+    print(options.data);
 
     return handler.next(options);
   }

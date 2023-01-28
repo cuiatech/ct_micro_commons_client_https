@@ -1,6 +1,7 @@
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart' hide LogInterceptor;
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flut_micro_commons_shared/shared/utils/env.dart';
 
 import '../../clients_https_base.dart';
 import '../interceptors/header_interceptor.dart';
@@ -20,7 +21,7 @@ class ClientHttps extends ClientHttpsBase {
     HttpClientAdapter? httpClientAdapter,
   }) : super(
           BaseOptions(
-            baseUrl: "http://localhost/cuiatech_api",
+            baseUrl: Modular.get<EnvParams>().baseUrl,
             connectTimeout: 50000,
             receiveTimeout: 50000,
           ),
