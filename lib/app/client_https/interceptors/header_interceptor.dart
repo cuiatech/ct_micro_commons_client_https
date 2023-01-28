@@ -6,6 +6,9 @@ class HeaderInterceptor extends InterceptorsWrapper {
 
   @override
   Future onRequest(RequestOptions options, handler) async {
+    options.headers['Access-Control-Allow-Origin'] = "*";
+    options.headers['Access-Control-Allow-Methods'] =
+        "POST, GET, OPTIONS, PUT, DELETE, HEAD";
     options.headers["device"] = kIsWeb ? "Web" : "App";
 
     final prefs = await SharedPreferences.getInstance();
