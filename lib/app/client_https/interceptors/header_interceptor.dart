@@ -9,6 +9,8 @@ class HeaderInterceptor extends InterceptorsWrapper {
     options.headers['Access-Control-Allow-Origin'] = "*";
     options.headers['Access-Control-Allow-Methods'] =
         "POST, GET, OPTIONS, PUT, DELETE, HEAD";
+    options.headers["Access-Control-Allow-Headers"] =
+        "Origin, X-Requested-With, Content-Type, Accept";
     options.headers["device"] = kIsWeb ? "Web" : "App";
 
     final prefs = await SharedPreferences.getInstance();
