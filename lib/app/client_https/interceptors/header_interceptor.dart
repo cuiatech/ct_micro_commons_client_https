@@ -20,6 +20,7 @@ class HeaderInterceptor extends InterceptorsWrapper {
       options.headers['Authorization'] = accessToken;
     }
 
+    print(options.baseUrl + options.path);
     print(options.headers);
     print(options.data);
 
