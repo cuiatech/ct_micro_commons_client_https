@@ -1,5 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'package:flut_micro_commons_dependencies/flut_micro_commons_dependencies.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flut_micro_commons_shared/flut_micro_commons_shared.dart';
 
 class HeaderInterceptor extends InterceptorsWrapper {
   HeaderInterceptor();
@@ -13,16 +16,15 @@ class HeaderInterceptor extends InterceptorsWrapper {
         "Origin, X-Requested-With, Content-Type, Accept";
     options.headers["device"] = kIsWeb ? "Web" : "App";
 
-    final prefs = await SharedPreferences.getInstance();
-    var accessToken = prefs.getString('access_token');
+    var accessToken = await LocalStorage.get('access_token');
 
     if (accessToken != null) {
       options.headers['Authorization'] = accessToken;
     }
 
-    print(options.baseUrl + options.path);
-    print(options.headers);
-    print(options.data);
+    print("Request: ${options.baseUrl + options.path}");
+    print("Headers: ${options.headers}");
+    print("Body: ${options.data}");
 
     return handler.next(options);
   }
