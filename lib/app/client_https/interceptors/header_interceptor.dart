@@ -9,20 +9,15 @@ class HeaderInterceptor extends InterceptorsWrapper {
 
   @override
   Future onRequest(RequestOptions options, handler) async {
-    options.headers['Access-Control-Allow-Origin'] = "*";
-    options.headers['Access-Control-Allow-Methods'] =
-        "POST, GET, OPTIONS, PUT, DELETE, HEAD";
-    options.headers["Access-Control-Allow-Headers"] =
-        "Origin, X-Requested-With, Content-Type, Accept";
     options.headers["device"] = kIsWeb ? "Web" : "App";
 
     var accessToken = await LocalStorage.get('access_token');
 
     if (accessToken != null) {
-      options.headers['Authorization'] = accessToken;
+      options.headers['Authorization'] = "Bearer $accessToken";
     }
 
-    print("Request: ${options.baseUrl + options.path}");
+    print("Request: ${options.method} ${options.baseUrl + options.path}");
     print("Headers: ${options.headers}");
     print("Body: ${options.data}");
 
