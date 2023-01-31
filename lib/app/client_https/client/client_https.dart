@@ -1,4 +1,5 @@
-import 'package:dio/adapter.dart';
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:dio/dio.dart' hide LogInterceptor;
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flut_micro_commons_shared/shared/utils/env.dart';
