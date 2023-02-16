@@ -1,4 +1,4 @@
-name: flut_micro_commons_client_https
+name: ct_micro_commons_client_https
 description: 
 version: 0.0.1
 homepage:
@@ -12,15 +12,15 @@ dependencies:
     sdk: flutter
 
 dependency_overrides:
-  flut_micro_commons_dependencies:
-    path: ../flut_micro_commons_dependencies
+  ct_micro_commons_dependencies:
+    path: ../ct_micro_commons_dependencies
     # git:
-    #   url: "https://github.com/cuiatech/flut_micro_commons_dependencies.git"
+    #   url: "https://github.com/cuiatech/ct_micro_commons_dependencies.git"
     #   ref: "master"
-  flut_micro_commons_shared:
-    path: ../flut_micro_commons_shared
+  ct_micro_commons_shared:
+    path: ../ct_micro_commons_shared
     # git:
-    #   url: "https://github.com/cuiatech/flut_micro_commons_shared.git"
+    #   url: "https://github.com/cuiatech/ct_micro_commons_shared.git"
     #   ref: "master"
 
 dev_dependencies:

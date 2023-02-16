@@ -2,7 +2,7 @@
 
 import 'package:dio/dio.dart' hide LogInterceptor;
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flut_micro_commons_shared/shared/utils/env.dart';
+import 'package:ct_micro_commons_shared/shared/utils/env.dart';
 
 import '../../clients_https_base.dart';
 import '../interceptors/header_interceptor.dart';
