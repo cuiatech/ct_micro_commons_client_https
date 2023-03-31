@@ -6,11 +6,13 @@ import 'package:ct_micro_commons_shared/shared/utils/env.dart';
 
 import '../../clients_https_base.dart';
 import '../interceptors/header_interceptor.dart';
+import '../interceptors/unauthorized_interceptor.dart';
 
 final $ClientHttps = Bind.singleton(
   (i) => ClientHttps(
     interceptors: [
       HeaderInterceptor(),
+      UnauthorizedInterceptor(),
     ],
   ),
   export: true,
