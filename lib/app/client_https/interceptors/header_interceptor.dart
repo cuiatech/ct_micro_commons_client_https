@@ -17,10 +17,6 @@ class HeaderInterceptor extends InterceptorsWrapper {
       options.headers['Authorization'] = "Bearer $accessToken";
     }
 
-    print("Request: ${options.method} ${options.baseUrl + options.path}");
-    print("Headers: ${options.headers}");
-    print("Body: ${options.data}");
-
     return handler.next(options);
   }
 }

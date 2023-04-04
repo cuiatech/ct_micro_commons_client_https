@@ -7,13 +7,16 @@ class UnauthorizedInterceptor extends InterceptorsWrapper {
   UnauthorizedInterceptor();
 
   @override
-  Future onResponse(Response response, handler) async {
-    print("Response: ${response.statusCode} ${response.data}");
-    if (response.statusCode == 401 || response.statusCode == 403) {
+  Future onError(DioError err, handler) async {
+    if (err.response?.statusCode == 401 || err.response?.statusCode == 403) {
+      DevLogger.error(
+        "ERROR: User unauthorized or forbidden",
+        name: "UnauthorizedInterceptor",
+      );
       await LocalStorage.erase();
       Modular.to.pushReplacementNamed("/");
     }
 
-    return handler.next(response);
+    return handler.next(err);
   }
 }
