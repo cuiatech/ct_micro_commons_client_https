@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, depend_on_referenced_packages
 import 'package:ct_micro_commons_dependencies/ct_micro_commons_dependencies.dart';
 import 'package:ct_micro_commons_shared/ct_micro_commons_shared.dart';
+import 'package:flutter/foundation.dart';
 
 class LogInterceptor extends InterceptorsWrapper {
   LogInterceptor();
@@ -23,9 +24,8 @@ class LogInterceptor extends InterceptorsWrapper {
 
   @override
   Future onResponse(Response response, handler) async {
-    DevLogger.success(
+    debugPrint(
       "Response: ${response.statusCode} ${response.data}",
-      name: 'LogInterceptor',
     );
     DevLogger.success(
       "==============================================",
