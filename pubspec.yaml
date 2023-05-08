@@ -13,15 +13,13 @@ dependencies:
 
 dependency_overrides:
   ct_micro_commons_dependencies:
-    path: ../ct_micro_commons_dependencies
-    # git:
-    #   url: "https://github.com/cuiatech/ct_micro_commons_dependencies.git"
-    #   ref: "master"
+    git:
+      url: "https://github.com/cuiatech/ct_micro_commons_dependencies.git"
+      ref: "master"
   ct_micro_commons_shared:
-    path: ../ct_micro_commons_shared
-    # git:
-    #   url: "https://github.com/cuiatech/ct_micro_commons_shared.git"
-    #   ref: "master"
+    git:
+      url: "https://github.com/cuiatech/ct_micro_commons_shared.git"
+      ref: "master"
 
 dev_dependencies:
   flutter_test:
